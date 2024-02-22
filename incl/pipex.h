@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:28:07 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/21 20:54:37 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/02/22 10:09:09 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@
 # include <limits.h>
 # include <fcntl.h>
 
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+# endif
+
 typedef struct s_pipex{
-	char	*file1;
-	char	*file2;
+	int	infile;
+	int	outfile;
 }			t_pipex;
 
 
@@ -34,5 +38,16 @@ int	main(int argc, char **argv);
 //** ERRORS **
 
 void	ft_error_msg(char *msg, char **str);
+
+//** get next line **
+
+char		*get_next_line(int fd);
+size_t		ft_strlen(char *str);
+char		*ft_strchr(char *s, int c);
+char		*ft_strjoin(char *board, char *buffer);
+char		*ft_strdup(char *s1);
+char		*ft_new_line(char *board);
+char		*ft_line(char *board);
+char		*ft_read(int fd, char *board);
 
 #endif

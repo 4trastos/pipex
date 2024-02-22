@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: davgalle <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 14:19:13 by davgalle          #+#    #+#              #
-#    Updated: 2024/02/21 20:50:00 by davgalle         ###   ########.fr        #
+#    Updated: 2024/02/22 10:09:18 by davgalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ RM = rm -f
 LIB = ar rcs
 
 SRCS = src/main.c \
-	   src/ft_error.c
+	   src/error.c \
+	   src/get_next_line.c \
+	   src/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
