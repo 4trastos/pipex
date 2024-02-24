@@ -6,11 +6,11 @@
 /*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:33:10 by davgalle          #+#    #+#             */
-/*   Updated: 2024/01/13 20:37:12 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:10:48 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../incl/pipex.h"
 
 char	**ft_empty_split(void)
 {

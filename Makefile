@@ -6,7 +6,7 @@
 #    By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 14:19:13 by davgalle          #+#    #+#              #
-#    Updated: 2024/02/22 13:58:07 by davgalle         ###   ########.fr        #
+#    Updated: 2024/02/24 13:58:50 by davgalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,9 @@ RM = rm -f
 LIB = ar rcs
 
 SRCS = src/main.c \
-	   src/error.c \
-	   src/get_next_line.c \
-	   src/get_next_line_utils.c \
 	   src/pipex_aux.c \
-	   src/ft_split.c
+	   src/ft_split.c \
+	   src/free.c
 
 OBJS = $(SRCS:.c=.o)
 

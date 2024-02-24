@@ -1,29 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 20:43:27 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/21 20:45:49 by davgalle         ###   ########.fr       */
+/*   Created: 2024/02/24 12:27:35 by davgalle          #+#    #+#             */
+/*   Updated: 2024/02/24 14:01:23 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pipex.h"
 
-void	ft_error_msg(char *msg, char **str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str)
-		free(str);
-	while(msg[i] != '\0')
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	process_free(t_pipex *pipex)
+{
+	int	i;
+
+	i = 0;
+	close(pipex->input);
+	close(pipex->output);
+	while (pipex->commands_paths[i])
 	{
-		write(1, &msg[i], 1);
+		free(pipex->commands_paths[i]);
 		i++;
 	}
-	write(1, "\n", 1);
-	exit (1);
+	free(pipex->commands_paths);
+}
+
+void	fork_free(t_pipex *pipex)
+{
+	int	i;
+
+	i = 0;
+	while (pipex->commands_arg[i])
+	{
+		free(pipex->commands_arg[i]);
+		i++;
+	}
+	free(pipex->commands_arg);
+	free(pipex->command);
 }
