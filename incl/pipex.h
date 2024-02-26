@@ -6,11 +6,11 @@
 /*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:28:07 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/24 13:57:41 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:22:33 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PIPEX_H
+#ifndef PIPEX_H
 # define PIPEX_H
 
 # include <unistd.h>
@@ -23,18 +23,18 @@
 # include <limits.h>
 # include <fcntl.h>
 
-typedef struct s_pipex{
-	pid_t	pid1;
-	pid_t	pid2;
-	int		tube[2];
+typedef struct s_pipex
+{
+	pid_t	pid1;				// Almacena el PID del primer proceso creado.
+	pid_t	pid2;				// Almacena el PID del segundo proceso creado.
+	int		tube[2];			// Array para almacenar los descriptores de archivo del tubo (pipe).
 	int		input;
 	int		output;
-	char	*paths;
-	char	**commands_paths;
-	char	**commands_arg;
-	char	*command;
+	char	*paths;    			 //Array para almacenar los directorios de los comandos.	
+	char	**commands_paths;	// Doble puntero de los comandos encontrados en el sistema.
+	char	**commands_arg;		// Doble puntero de los comandos pasados como argumentos.
+	char	*command;			// Comando que se va a ejecutar.
 }			t_pipex;
-
 
 //** INIT **
 
@@ -42,14 +42,14 @@ int			main(int argc, char **argv, char **envp);
 
 //** ERRORS **
 
-void		ft_error_msg(char *msg, char **str);
+void		ft_error_msg(char *msg);
 void		process_free(t_pipex *pipex);
 void		fork_free(t_pipex *pipex);
 
 //** STRUCTURE FIELDS **
 
 char		*ft_findpath(char **envp);
-char		*get_command(char **paths, char *com_arg);
+char		*get_command(char **paths, char *command_arg);
 void		close_pipex(t_pipex *pipex);
 
 //** AUXILIARS **
@@ -68,7 +68,7 @@ char		**ft_split(char const *s, char c);
 
 //** CHILDS **
 
-void		child_one(t_pipex pipex, char **argv, char **envp);
-void		child_two(t_pipex piepx, char **argv, char **envp);
+void		process_one(t_pipex pipex, char **argv, char **envp);
+void		process_two(t_pipex piepx, char **argv, char **envp);
 
 #endif
