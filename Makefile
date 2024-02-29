@@ -6,7 +6,7 @@
 #    By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 14:19:13 by davgalle          #+#    #+#              #
-#    Updated: 2024/02/28 19:44:51 by davgalle         ###   ########.fr        #
+#    Updated: 2024/02/29 19:28:00 by davgalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,16 @@ SRCS = src/main.c \
 BONUS = bonus/main.c \
 		bonus/pipex_aux_bonus.c \
 		bonus/ft_split.c \
-		bonus/free.c
+		bonus/free_bonus.c \
+		bonus/processes_bonus.c \
+		bonus/here_doc_bonus.c \
+		bonus/get_next_line.c \
+		bonus/get_next_utils_utils.c \
+		bonus/ft_inputs.c
 
 OBJS = $(SRCS:.c=.o)
 
-BONUS_OBJS = $(BONUS:.c-.o)
+BONUS_OBJS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -55,6 +60,6 @@ fclean: clean
 	$(RM) $(NAME_BONUS)
 	$(RM) $(BONUS_OBJS)
 
-re: all clean
+re: fclean all
 
 .PHONY: all clean fclean re

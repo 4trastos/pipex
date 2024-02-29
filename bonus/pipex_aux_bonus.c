@@ -6,11 +6,37 @@
 /*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:40:30 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/28 18:46:33 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/02/29 15:59:36 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
+
+char	*ft_strjoin(char *one, char *two)
+{
+	int		i;
+	int		j;
+	char	*new;
+
+	i = 0;
+	new = (char *)malloc((ft_strlen(one) + ft_strlen(two)) + 1);
+	if (!new)
+		return (NULL);
+	while (one[i] != '\0')
+	{
+		new[i] = one[i];
+		i++;
+	}
+	j = 0;
+	while (two[j] != '\0')
+	{
+		new[i] = two[j];
+		j++;
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}
 
 int	ft_strlen(char *str)
 {
