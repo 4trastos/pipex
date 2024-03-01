@@ -6,13 +6,13 @@
 /*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:40:30 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/29 15:59:36 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:07:30 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "../incl/pipex_bonus.h"
 
-char	*ft_strjoin(char *one, char *two)
+char	*ft_strjoindav(char *one, char *two)
 {
 	int		i;
 	int		j;
@@ -38,16 +38,6 @@ char	*ft_strjoin(char *one, char *two)
 	return (new);
 }
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
 void	ft_error_msg(char *str)
 {
 	int	i;
@@ -70,7 +60,7 @@ int		ft_strncmp(char *str, char *dst, int numb)
 	while ((str[i] != '\0' || dst[i] != '\0') && i < numb)
 	{
 		if (str[i] != dst[i])
-			return ((char *)str[i] - (char *)dst[i]);
+			return ((char)str[i] - (char)dst[i]);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:07:05 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/29 19:12:45 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:13:35 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@ char	*ft_read(int fd, char *board, int	*bytes_read)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-		return (NULL);
+		return (0);
 	while (board && !ft_strchr(board, '\n') && *bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == -1)
+		*bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (*bytes_read == -1)
 		{
 			free(buffer);
 			free(board);
-			return (NULL);
+			return (0);
 		}
 		buffer[*bytes_read] = '\0';
 		board = ft_strjoin(board, buffer);
@@ -78,27 +78,27 @@ char	*ft_read(int fd, char *board, int	*bytes_read)
 	return (board);
 }
 
-char	*get_next_line(int fd, char *line)
+int	get_next_line(int fd, char *line)
 {
 	static char	*board;
 	int			bytes_read;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || !text )
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0 || line)
+		return (0);
 	if (!board)
 	{
 		board = malloc(1);
 		if (!board)
 		{
 			free(board);
-			return (NULL);
+			return (0);
 		}
 		board[0] = '\0';
 	}
 	bytes_read = 1;
 	board = ft_read(fd, board, &bytes_read);
 	if (!board)
-		return (NULL);
+		return (0);
 	line = ft_line(board);
 	board = ft_new_line(board);
 	if (bytes_read == 0 && !board)

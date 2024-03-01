@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 19:43:29 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/29 18:55:40 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:23:20 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 #  define BUFFER_SIZE 100
 # endif
 
-typedef struct s_pipex
+typedef struct s_tipex
 {
 	pid_t	pid;
 	int		idx;
@@ -41,7 +41,7 @@ typedef struct s_pipex
 	char	**commands_paths;
 	char	**commands_arg;
 	char	*command;
-}	t_pipex;
+}	t_tipex;
 
 //** INIT ***
 
@@ -50,28 +50,28 @@ int		main(int argc, char **argv, char **envp);
 //** ERRORS & CLOSING***
 
 void	ft_error_msg(char *str);
-void	close_pipes(t_pipex *pipex);
-void	end_processes(t_pipex pipex);
+void	close_pipex(t_tipex *pipex);
+void	end_processes(t_tipex pipex);
+void	free_pipex(t_tipex *pipex);
 
 //** HERE_DOC ***
 
-void	here_doc(char *argv, t_pipex *pipex);
-void	get_input(t_pipex *pipex, char **argv);
-void	get_output(t_pipec *pipex, char *argv);
-int		check_args(t_pipex *pipex, char *argv);
+void	here_doc(char *argv, t_tipex *pipex);
+void	get_input(t_tipex *pipex, char **argv);
+void	get_output(t_tipex *pipex, char **argv, int argc);
+int		check_args(t_tipex *pipex, char *argv);
 
 //** CREATE PIPEX & PROCESS ***
 
 char	*ft_findpaths(char **envp);
-void	ft_createpipes(t_pipex *pipex);
-void	proceses(t_pipex, char **argv, char **envp);
+void	ft_createpipes(t_tipex *pipex);
+void	processes(t_tipex, char **argv, char **envp);
 char	*get_command(char **paths, char *arg);
 
 //** AUXILIARS ***
 
 int		ft_strncmp(char *str, char *dst, int numb);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *one, char *two);
+char	*ft_strjoindav(char *one, char *two);
 
 //** SPLIT ***
 
@@ -80,3 +80,13 @@ char	*ft_strdup_custom(const char *s, size_t n);
 char	**ft_free_str(char **aux);
 int		ft_countc(char const *s, char c);
 char	**ft_split(char const *s, char c);
+
+//** GET NEXT LINE ***
+
+int			get_next_line(int fd, char *line);
+size_t		ft_strlen(char *str);
+char		*ft_strchr(char *s, int c);
+char		*ft_strjoin(char *board, char *buffer);
+char		*ft_strdup(char *s1);
+
+#endif

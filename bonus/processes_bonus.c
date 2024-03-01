@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   processes.c                                        :+:      :+:    :+:   */
+/*   processes_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 12:56:50 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/29 16:57:50 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:45:47 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ char	*get_command(char **path, char *arg)
 	char	*exe;
 	while (*path)
 	{
-		aux = ft_strjoin(*path, "/");
-		exe = ft_strjoin(aux, arg);
+		aux = ft_strjoindav(*path, "/");
+		exe = ft_strjoindav(aux, arg);
 		free(aux);
 		if (access(exe, 0) == 0)
 			return (exe);
 		free(exe);
-		path++:
+		path++;
 	}
 	return (NULL);
 }
@@ -35,7 +35,7 @@ void	sub_dup2(int zero, int one)
 	dup2(one, 1);
 }
 
-void	close_pipes(t_pipex *pipex)
+void	close_pipes(t_tipex *pipex)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ void	close_pipes(t_pipex *pipex)
 	}
 }
 
-void	processes(t_pipex pipex, char **argv, char **envp)
+void	processes(t_tipex pipex, char **argv, char **envp)
 {
 	pipex.pid = fork();
 	if (pipex.pid == 0)
@@ -57,9 +57,9 @@ void	processes(t_pipex pipex, char **argv, char **envp)
 		else if (pipex.idx == pipex.commands_numb - 1)
 			sub_dup2(pipex.pipe[2 * pipex.idx - 2], pipex.output);
 		else
-			sub_dup2(pipex.pipe[2 * pipex.ids - 2], pipe.pipe[2 * pipex.idx + 1]);
+			sub_dup2(pipex.pipe[2 * pipex.idx - 2], pipex.pipe[2 * pipex.idx + 1]);
 		close_pipes(&pipex);
-		pipex.commamds_args = ft_split(argv[2 + pipex.here_doc +pipex.idx], ' ');
+		pipex.commands_arg = ft_split(argv[2 + pipex.here_doc + pipex.idx], ' ');
 		pipex.command = get_command(pipex.commands_paths, pipex.commands_arg[0]);
 		if (pipex.command == NULL)
 		{

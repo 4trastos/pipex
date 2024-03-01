@@ -6,7 +6,7 @@
 #    By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 14:19:13 by davgalle          #+#    #+#              #
-#    Updated: 2024/02/29 19:28:00 by davgalle         ###   ########.fr        #
+#    Updated: 2024/03/01 17:39:29 by davgalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,14 @@ SRCS = src/main.c \
 	   src/pipex_aux.c \
 	   src/ft_split.c \
 	   src/free.c
-BONUS = bonus/main.c \
+BONUS = bonus/main_bonus.c \
 		bonus/pipex_aux_bonus.c \
 		bonus/ft_split.c \
 		bonus/free_bonus.c \
 		bonus/processes_bonus.c \
 		bonus/here_doc_bonus.c \
 		bonus/get_next_line.c \
-		bonus/get_next_utils_utils.c \
+		bonus/get_next_line_utils.c \
 		bonus/ft_inputs.c
 
 OBJS = $(SRCS:.c=.o)
