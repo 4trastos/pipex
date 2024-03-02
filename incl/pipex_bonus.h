@@ -6,7 +6,7 @@
 /*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 19:43:29 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/01 16:23:20 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:13:27 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	ft_error_msg(char *str);
 void	close_pipex(t_tipex *pipex);
 void	end_processes(t_tipex pipex);
 void	free_pipex(t_tipex *pipex);
+void	pipe_free(t_tipex *pipex);
+void	processes_free(t_tipex *pipex);
 
 //** HERE_DOC ***
 
@@ -60,12 +62,13 @@ void	here_doc(char *argv, t_tipex *pipex);
 void	get_input(t_tipex *pipex, char **argv);
 void	get_output(t_tipex *pipex, char **argv, int argc);
 int		check_args(t_tipex *pipex, char *argv);
+void	ft_unlink(t_tipex *pipex);
 
 //** CREATE PIPEX & PROCESS ***
 
 char	*ft_findpaths(char **envp);
 void	ft_createpipes(t_tipex *pipex);
-void	processes(t_tipex, char **argv, char **envp);
+void	processes(t_tipex pipex, char **argv, char **envp);
 char	*get_command(char **paths, char *arg);
 
 //** AUXILIARS ***
@@ -83,10 +86,10 @@ char	**ft_split(char const *s, char c);
 
 //** GET NEXT LINE ***
 
-int			get_next_line(int fd, char *line);
-size_t		ft_strlen(char *str);
-char		*ft_strchr(char *s, int c);
-char		*ft_strjoin(char *board, char *buffer);
-char		*ft_strdup(char *s1);
+int		get_next_line(int fd, char **line);
+size_t	ft_strlen(char *str);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *board, char *buffer);
+char	*ft_strdup(char *s1);
 
 #endif

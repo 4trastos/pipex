@@ -6,7 +6,7 @@
 /*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:07:19 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/01 17:45:19 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 14:40:10 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char **argv, char **envp)
 	pipex.paths = ft_findpaths(envp);
 	pipex.commands_paths = ft_split(pipex.paths, ':');
 	if (!pipex.commands_paths)
-		free_pipex(&pipex);
+		pipe_free(&pipex);
 	ft_createpipes(&pipex);
 	pipex.idx = 0;
 	while (pipex.idx < pipex.commands_numb)

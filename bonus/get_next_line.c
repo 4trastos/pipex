@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:07:05 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/01 15:13:35 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 11:48:35 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ char	*ft_read(int fd, char *board, int	*bytes_read)
 	return (board);
 }
 
-int	get_next_line(int fd, char *line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*board;
 	int			bytes_read;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || line)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	if (!board)
 	{
@@ -99,7 +99,7 @@ int	get_next_line(int fd, char *line)
 	board = ft_read(fd, board, &bytes_read);
 	if (!board)
 		return (0);
-	line = ft_line(board);
+	*line = ft_line(board);
 	board = ft_new_line(board);
 	if (bytes_read == 0 && !board)
 		return (0);

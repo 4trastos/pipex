@@ -6,7 +6,7 @@
 /*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:40:30 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/01 15:07:30 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:06:12 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_error_msg(char *str)
 	exit(1);
 }
 
-int		ft_strncmp(char *str, char *dst, int numb)
+int	ft_strncmp(char *str, char *dst, int numb)
 {
 	int	i;
 

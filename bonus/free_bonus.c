@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgalle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 19:44:05 by davgalle          #+#    #+#             */
-/*   Updated: 2024/02/29 19:55:09 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 14:41:14 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,29 @@ void	free_pipex(t_tipex *pipex)
 	}
 	free(pipex->commands_paths);
 	free(pipex->pipe);
+}
+
+void	pipe_free(t_tipex *pipex)
+{
+	close(pipex->input);
+	close(pipex->output);
+	if (pipex->here_doc)
+		unlink(".heredoc_tmp");
+	free(pipex->pipe);
+	ft_error_msg("Error!!");
+	exit(1);
+}
+
+void	processes_free(t_tipex *pipex)
+{
+	int	i;
+
+	i = 0;
+	while (pipex->commands_arg[i])
+	{
+		free(pipex->commands_arg[i]);
+		i++;
+	}
+	free(pipex->commands_arg);
+	free(pipex->command);
 }
