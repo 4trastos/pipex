@@ -6,7 +6,7 @@
 /*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:07:38 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/02 14:46:41 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 18:11:08 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	here_doc(char *argv, t_tipex *pipex)
 		if (!ft_strncmp(argv, line, ft_strlen(argv + 1)))
 			break ;
 		write(file, line, ft_strlen(line));
-		write(file, "\n", 1);
 		free(line);
 	}
 	free(line);

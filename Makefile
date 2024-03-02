@@ -6,7 +6,7 @@
 #    By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 14:19:13 by davgalle          #+#    #+#              #
-#    Updated: 2024/03/01 17:39:29 by davgalle         ###   ########.fr        #
+#    Updated: 2024/03/02 18:19:31 by davgalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS = pipex_bonus
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -c -o -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra -c -o
 
 RM = rm -f
 

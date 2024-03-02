@@ -6,7 +6,7 @@
 /*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:31:07 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/01 16:23:09 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 18:13:54 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	get_input(t_tipex *pipex, char **argv)
 void	get_output(t_tipex *pipex, char **argv, int argc)
 {
 	if (pipex->here_doc == 1)
-		pipex->output = open(argv[argc -1], O_CREAT | O_RDWR | O_TRUNC, 0644);
+		pipex->output = open(argv[argc -1], O_CREAT | O_RDWR | O_APPEND, 0644);
 	else
 		pipex->output = open(argv[argc - 1], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (pipex->output == -1)

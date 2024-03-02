@@ -6,7 +6,7 @@
 /*   By: davgalle <davgalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:07:05 by davgalle          #+#    #+#             */
-/*   Updated: 2024/03/02 11:48:35 by davgalle         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:33:46 by davgalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	get_next_line(int fd, char **line)
 	static char	*board;
 	int			bytes_read;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 		return (0);
 	if (!board)
 	{
