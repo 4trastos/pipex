@@ -55,6 +55,8 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_tipex	pipex;
 
+	if (*envp == NULL)
+		ft_error_msg("Error: Missing environment variables");
 	if (argc < check_args(&pipex, argv[1]))
 		ft_error_msg("Error inputs!");
 	get_input(&pipex, argv);
