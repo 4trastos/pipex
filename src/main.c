@@ -51,6 +51,8 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
+	if (*envp == NULL)
+		ft_error_msg("Error: Missing environment variables");
 	if (argc == 1)
 		ft_error_msg("arguments are necessary!");
 	if (argc != 5)
